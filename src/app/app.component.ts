@@ -31,19 +31,26 @@ export class AppComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
   }
-  applyFilter(filterValue: string) {
+  applySearch(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
-  showSchool(school) {
-    let dialogData = {
-      lat: 8978989,
-      log: 4545646
+  showSchool(school: School) {
+    const locationData = this.alterTheString(school.latlong);
+    const dialogData = {
+      lat: Number(locationData[1]),
+      lng: Number(locationData[0])
     }
     this.matDialog.open(MapComponent, { data: dialogData, disableClose: true });
 
+  }
+
+  alterTheString(location: string) {
+    let target = location.replace('POINT(', '');
+    target = target.replace(')', '');
+    return target.split(' ');
   }
 }
 

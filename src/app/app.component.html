@@ -1,7 +1,7 @@
 <div class="example-container mat-elevation-z8">
   <div class="example-header">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <input matInput (keyup)="applySearch($event.target.value)" placeholder="Search">
     </mat-form-field>
   </div>
 
@@ -10,13 +10,13 @@
     <!-- Position Column -->
     <ng-container matColumnDef="schoolid">
       <mat-header-cell *matHeaderCellDef> School Id </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <span (click)="showSchool(element)">{{element.schoolid}}</span> </mat-cell>
+      <mat-cell *matCellDef="let element">{{element.schoolid}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="schoolname">
       <mat-header-cell *matHeaderCellDef mat-sort-header> School Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.schoolname}} </mat-cell>
+      <mat-cell *matCellDef="let element">  <span class="pointer" (click)="showSchool(element)">{{element.schoolname}} </span></mat-cell>
     </ng-container>
     <!-- Weight Column -->
     <ng-container matColumnDef="category">

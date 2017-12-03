@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  lat:number;
+  lng:number;
+	constructor(public dialogRef: MatDialogRef<MapComponent>,
+		@Inject(MAT_DIALOG_DATA) data: any) {
+      this.lat=data.lat;
+      this.lng=data.lng;
+		};
+	
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

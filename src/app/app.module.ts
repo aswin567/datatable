@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import {MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatDialogModule} from '@angular/material';
+import {MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule, MatDialogModule, MatButtonModule} from '@angular/material';
 import 'hammerjs';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
@@ -12,6 +12,7 @@ import { MapComponent } from './map/map.component';
     AppComponent,
     MapComponent
   ],
+  entryComponents: [MapComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -22,6 +23,7 @@ import { MapComponent } from './map/map.component';
     MatInputModule,
     MatSortModule,
     MatPaginatorModule,
+    MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC2QQeYf0sJgU95YhZUamJf4sBxnexO62E'
     })
