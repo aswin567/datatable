@@ -7,15 +7,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class MapComponent implements OnInit {
 
-  lat:number;
-  lng:number;
-	constructor(public dialogRef: MatDialogRef<MapComponent>,
-		@Inject(MAT_DIALOG_DATA) data: any) {
-      this.lat=data.lat;
-      this.lng=data.lng;
-		};
-	
+  lat: number;
+  lng: number;
+  constructor(public dialogRef: MatDialogRef<MapComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any) {
+    this.lat = data.lat;
+    this.lng = data.lng;
+  }
 
-  ngOnInit() {}
+
+  ngOnInit() { }
 
 }

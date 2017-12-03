@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { MapComponent } from './map/map.component';
-import { School} from './app';
+import { School } from './app';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,10 +19,10 @@ export class AppComponent implements AfterViewInit {
   constructor(private http: HttpClient, private matDialog: MatDialog) { }
 
   ngAfterViewInit() {
-    this.getData()
+    this.getData();
   }
 
-  //fecth data from api
+  // fecth data from api
   getData(): void {
     let tableData;
     this.http.get<School>('/assets/data/data.json').subscribe(data => {
@@ -33,15 +33,15 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  //apply Search
+  // apply Search
   applySearch(filterValue: string): void {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
 
-  //show school map
-  showSchool(school: School): void  {
+  // show school map
+  showSchool(school: School): void {
     const locationData = this.alterTheString(school.latlong);
     const dialogData = {
       lat: Number(locationData[1]),
@@ -50,7 +50,7 @@ export class AppComponent implements AfterViewInit {
     this.matDialog.open(MapComponent, { data: dialogData, disableClose: true });
   }
 
-  //get the lat and lng
+  // get the lat and lng
   alterTheString(location: string): Array<string> {
     let target = location.replace('POINT(', '');
     target = target.replace(')', '');
