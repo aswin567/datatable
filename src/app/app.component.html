@@ -10,7 +10,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="schoolid">
       <mat-header-cell *matHeaderCellDef> School Id </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.schoolid}} </mat-cell>
+      <mat-cell *matCellDef="let element"> <span (click)="showSchool(element)">{{element.schoolid}}</span> </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
