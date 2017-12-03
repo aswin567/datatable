@@ -5,49 +5,48 @@
     </mat-form-field>
   </div>
 
-  <mat-table #table [dataSource]="dataSource">
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- Position Column -->
     <ng-container matColumnDef="schoolid">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> School Id </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.schoolid}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="schoolname">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.schoolname}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> School Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.schoolname}} </mat-cell>
     </ng-container>
-
     <!-- Weight Column -->
     <ng-container matColumnDef="category">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
     </ng-container>
 
     <!-- Color Column -->
     <ng-container matColumnDef="medium_of_inst">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Medium </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.medium_of_inst}} </mat-cell>
     </ng-container>
     <!-- Color Column -->
     <ng-container matColumnDef="address">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
     </ng-container>
     <!-- Color Column -->
     <ng-container matColumnDef="area">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Area </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.area}} </mat-cell>
     </ng-container>
     <!-- Color Column -->
     <ng-container matColumnDef="pincode">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pincode </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.pincode}} </mat-cell>
     </ng-container>
     <!-- Color Column -->
     <ng-container matColumnDef="landmark">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Landmark </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.landmark}} </mat-cell>
     </ng-container>
 

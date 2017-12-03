@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
-
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   displayedColumns = ['schoolid', 'schoolname', 'category', 'medium_of_inst', 'address', 'area', 'pincode', 'landmark'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }  
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
