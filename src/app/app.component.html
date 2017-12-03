@@ -17,7 +17,7 @@
     <ng-container matColumnDef="schoolname">
       <mat-header-cell *matHeaderCellDef mat-sort-header> School Name </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <span class="pointer" (click)="showSchool(element)">{{element.schoolname}} </span>
+        <span class="pointer containData" (click)="showSchool(element)">{{element.schoolname}} </span>
       </mat-cell>
     </ng-container>
     <!-- Weight Column -->
