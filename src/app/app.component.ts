@@ -46,7 +46,7 @@ export class AppComponent implements AfterViewInit {
     const dialogData = {
       lat: Number(locationData[1]),
       lng: Number(locationData[0])
-    }
+    };
     this.matDialog.open(MapComponent, { data: dialogData, disableClose: true });
   }
 
